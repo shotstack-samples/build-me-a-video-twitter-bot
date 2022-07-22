@@ -73,8 +73,7 @@
                         },
                         "transition": {
                             "in": "fade"
-                        },
-                        "effect": "zoomOut"
+                        }
                     },
                     {
                         "asset": {
@@ -92,8 +91,7 @@
                         },
                         "transition": {
                             "in": "fade"
-                        },
-                        "effect": "zoomOut"
+                        }
                     }
                 ]
             },
