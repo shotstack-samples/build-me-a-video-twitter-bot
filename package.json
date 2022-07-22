@@ -1,0 +1,28 @@
+{
+  "name": "demo-twitter-buildmeavideo",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dayjs": "^1.11.3",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.20.0",
+    "got": "^11.8.0",
+    "mime": "^3.0.0",
+    "stream": "0.0.2",
+    "twitter-api-v2": "^1.12.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.2.1",
+    "serverless-dotenv-plugin": "^4.0.1",
+    "serverless-http": "^2.7.0",
+    "serverless-prune-plugin": "^2.0.1"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "timeline": {
+      "background": "#000000",
+      "tracks": [
+          {
+              "clips": [
+                  {
+                      "asset": {
+                          "type": "html",
+                          "html": "<p>\"{{text}}\"</p>",
+                          "css": "p { font-size: 72px; color: #FFFFFF; }",
+                          "height": 780,
+                          "width": 650
+                      },
+                      "start": 1,
+                      "length": 4,
+                      "offset": {
+                          "x": 0.229,
+                          "y": 0
+                      },
+                      "transition": {
+                          "in": "fade"
+                      }
+                  }
+              ]
+          },
+          {
+              "clips": [
+                  {
+                      "asset": {
+                          "type": "luma",
+                          "src": "https://shotstack-assets.s3.amazonaws.com/luma-mattes/circle-400x400.jpg"
+                      },
+                      "start": 0.5,
+                      "length": 4.5
+                  },
+                  {
+                      "asset": {
+                          "type": "image",
+                          "src": "{{profilePictureUrl}}"
+                      },
+                      "start": 0.5,
+                      "length": 4.5,
+                      "scale": 0.5,
+                      "offset": {
+                          "x": -0.265,
+                          "y": 0
+                      },
+                      "fit": "none",
+                      "transition": {
+                          "in": "fade"
+                      }
+                  }
+              ]
+          },
+          {
+              "clips": [
+                  {
+                      "asset": {
+                          "type": "html",
+                          "html": "<p>{{name}}</p>",
+                          "css": "p { color: #000000; font-size: 32px; text-align: center; }",
+                          "width": 500,
+                          "height": 75
+                      },
+                      "start": 0.5,
+                      "length": 4.5,
+                      "offset": {
+                          "x": -0.265,
+                          "y": -0.257
+                      },
+                      "transition": {
+                          "in": "fade"
+                      }
+                  },
+                  {
+                      "asset": {
+                          "type": "html",
+                          "html": "<p>@{{username}}</p>",
+                          "css": "p { color: #000000; font-size: 32px; text-align: center; }",
+                          "width": 500,
+                          "height": 75
+                      },
+                      "start": 0.5,
+                      "length": 4.5,
+                      "offset": {
+                          "x": -0.268,
+                          "y": -0.347
+                      },
+                      "transition": {
+                          "in": "fade"
+                      }
+                  }
+              ]
+          },
+          {
+              "clips": [
+                  {
+                      "asset": {
+                          "type": "html",
+                          "html": "<p></p>",
+                          "background": "#F5F8FA",
+                          "height": 720,
+                          "width": 1000
+                      },
+                      "start": 0,
+                      "length": 5,
+                      "offset": {
+                          "x": -0.429,
+                          "y": 0.001
+                      },
+                      "transition": {
+                          "in": "carouselRightSlow"
+                      }
+                  }
+              ]
+          }
+      ]
+  },
+  "output": {
+      "format": "mp4",
+      "resolution": "hd",
+      "fps": 30,
+      "destinations": [
+          {
+              "provider": "shotstack",
+              "exclude": true
+          }
+      ]
+  }
+}
