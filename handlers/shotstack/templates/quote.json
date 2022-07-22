@@ -9,7 +9,6 @@
                             "type": "html",
                             "html": "<p>\"{{text}}\"</p>",
                             "css": "p { font-size: 72px; color: #FFFFFF; }",
-                            "background": "e3",
                             "width": 750,
                             "height": 593
                         },
