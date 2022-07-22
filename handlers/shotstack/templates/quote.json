@@ -43,13 +43,13 @@
                         "length": 4.5,
                         "offset": {
                             "x": -0.329,
-                            "y": 0.085
+                            "y": 0.045
                         },
                         "fit": "none",
                         "transition": {
                             "in": "fade"
                         },
-                        "scale": 1
+                        "scale": 0.75
                     }
                 ]
             },
@@ -66,8 +66,8 @@
                         "start": 0.5,
                         "length": 4.5,
                         "offset": {
-                            "x": -0.332,
-                            "y": -0.134
+                            "x": -0.328,
+                            "y": -0.22
                         },
                         "transition": {
                             "in": "fade"
@@ -77,15 +77,15 @@
                         "asset": {
                             "type": "html",
                             "html": "<p>@{{username}}</p>",
-                            "css": "p { color: #000000; font-size: 32px; text-align: center; }",
                             "height": 75,
-                            "width": 360
+                            "width": 360,
+                            "css": "p { color: #000000; font-size: 24px; text-align: center; }"
                         },
                         "start": 0.5,
                         "length": 4.5,
                         "offset": {
                             "x": -0.328,
-                            "y": -0.37
+                            "y": -0.28
                         },
                         "transition": {
                             "in": "fade"
@@ -108,7 +108,11 @@
                         "transition": {
                             "in": "carouselRightSlow"
                         },
-                        "position": "left"
+                        "position": "left",
+                        "offset": {
+                            "x": 0,
+                            "y": 0
+                        }
                     }
                 ]
             }
