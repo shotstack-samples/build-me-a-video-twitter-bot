@@ -38,7 +38,7 @@
                     {
                         "asset": {
                             "type": "image",
-                            "src": "https://pbs.twimg.com/profile_images/1344887558824574977/YGVgUUF-_400x400.jpg"
+                            "src": "{{profilePictureUrl}}"
                         },
                         "start": 0.5,
                         "length": 4.5,
