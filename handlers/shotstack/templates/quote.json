@@ -7,7 +7,7 @@
                     {
                         "asset": {
                             "type": "html",
-                            "html": "<p>\"{{text}}\"</p>",
+                            "html": "<p>{{text}}</p>",
                             "css": "p { font-size: 72px; color: #FFFFFF; }",
                             "width": 750,
                             "height": 593
@@ -60,9 +60,9 @@
                     {
                         "asset": {
                             "type": "html",
-                            "html": "<p>{{name}}</p>",
-                            "height": 75,
-                            "css": "p { color: #000000; font-size: 46px; text-align: center; }",
+                            "html": "<p class='name'>{{name}}</p><p class='username'>@{{username}}</p>",
+                            "height": 200,
+                            "css": "p { color: #000000; text-align: center } .name { font-size: 46px; } .username { font-size: 24px; }",
                             "width": 360
                         },
                         "start": 0.5,
@@ -70,24 +70,6 @@
                         "offset": {
                             "x": -0.328,
                             "y": -0.22
-                        },
-                        "transition": {
-                            "in": "fade"
-                        }
-                    },
-                    {
-                        "asset": {
-                            "type": "html",
-                            "html": "<p>@{{username}}</p>",
-                            "height": 75,
-                            "width": 360,
-                            "css": "p { color: #000000; font-size: 24px; text-align: center; }"
-                        },
-                        "start": 0.5,
-                        "length": 9.5,
-                        "offset": {
-                            "x": -0.328,
-                            "y": -0.28
                         },
                         "transition": {
                             "in": "fade"

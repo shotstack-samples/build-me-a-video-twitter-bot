@@ -39,7 +39,7 @@ functions:
     handler: handlers/twitter/handler.process
     description: Process any new mentions
     timeout: 300
-    memorySize: 512
+    memorySize: 128
     events:
       - eventBridge:
         schedule: rate(1 minute)
@@ -47,7 +47,7 @@ functions:
     handler: handlers/shotstack/lib/webhook.process
     description: Upload rendered videos to Twitter and tweet
     timeout: 30
-    memorySize: 1024
+    memorySize: 128
     events:
       - http:
           method: POST

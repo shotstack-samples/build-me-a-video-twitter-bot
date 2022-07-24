@@ -9,8 +9,9 @@ const webhookUrl = process.env.SHOTSTACK_WEBHOOK_URL;
 const apiKey = process.env.SHOTSTACK_API_KEY;
 
 const cleanString = async (string) => {
-  // str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
-  return string.replace(/(\r\n|\n|\r)/gm, '<br>');
+  let newString = string.replace(/(\r\n|\n|\r)/gm, '<br>');
+  newString = newString.replace(/"/g, "'");
+  return newString;
 };
 
 module.exports = async (tweet) => {

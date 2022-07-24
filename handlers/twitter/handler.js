@@ -47,7 +47,6 @@ module.exports.process = async () => {
   }
   try {
     const response = await Promise.all(promises);
-    console.info('Renders queued.');
     return response;
   } catch (error) {
     throw new Error(error);
