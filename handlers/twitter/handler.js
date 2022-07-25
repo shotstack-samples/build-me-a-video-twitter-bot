@@ -11,11 +11,12 @@ require('dotenv').config();
 
 module.exports.process = async () => {
   const client = await authenticate();
+  const twitterId = process.env.TWITTER_ID;
   const timestamp = new Dayjs(new Date().getTime()).subtract(1, 'minute');
   const startTime = timestamp.second(0).millisecond(0).utc().toISOString();
   const endTime = timestamp.second(0).millisecond(0).add(1, 'minute').utc().toISOString();
   console.info(`Querying mentions between ${startTime} and ${endTime}.`);
-  const results = await mentions(client, startTime, endTime);
+  const results = await mentions(client, twitterId, startTime, endTime);
   const promises = [];
   if (results.length > 0) {
     const tweetPromises = [];

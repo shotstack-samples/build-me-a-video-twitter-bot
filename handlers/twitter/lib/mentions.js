@@ -1,7 +1,7 @@
-module.exports = async (client, startTime, endTime) => {
+module.exports = async (client, twitterId, startTime, endTime) => {
   try {
     const results = [];
-    const response = await client.v2.userMentionTimeline('1547419252465905664', {
+    const response = await client.v2.userMentionTimeline(twitterId, {
       start_time: startTime,
       end_time: endTime,
       'tweet.fields': ['id', 'in_reply_to_user_id', 'text'],

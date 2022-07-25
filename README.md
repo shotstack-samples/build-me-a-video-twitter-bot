@@ -1,127 +1,60 @@
 <!--
-title: 'Serverless Framework Node Express API on AWS'
+title: 'Build Me A Video Twitter Bot'
 description: 'This template demonstrates how to develop and deploy a simple Node Express API running on AWS Lambda using the traditional Serverless Framework.'
 layout: Doc
-framework: v2
 platform: AWS
 language: nodeJS
 priority: 1
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
+authorLink: 'https://github.com/derkzomer'
+authorName: 'Derk Zomer'
 -->
 
-# Serverless Framework Node Express API on AWS
+# ![pageres](media/promo.png)
 
-This template demonstrates how to develop and deploy a simple Node Express API service running on AWS Lambda using the traditional Serverless Framework.
+[![Coverage Status](https://codecov.io/gh/sindresorhus/pageres/branch/main/graph/badge.svg)](https://codecov.io/gh/sindresorhus/pageres)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
-## Anatomy of the template
+Create a Twitter bot that creates videos from tweets using the Shotstack API.
 
-This template configures a single function, `api`, which is responsible for handling all incoming requests thanks to the `httpApi` event. To learn more about `httpApi` event configuration options, please refer to [httpApi event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api/). As the event is configured in a way to accept all incoming requests, `express` framework is responsible for routing and handling requests internally. Implementation takes advantage of `serverless-http` package, which allows you to wrap existing `express` applications. To learn more about `serverless-http`, please refer to corresponding [GitHub repository](https://github.com/dougmoscrop/serverless-http).
+This project uses AWS Lambda via the [Serverless](https://serverless.com/) framework, **[Shotstack](https://github.com/shotstack)**, [node-twitter-api-v2](https://github.com/plhery/node-twitter-api-v2) to query any Twitter mentions and create a personalised video from tweet and user data.
+
+## Install
+
+Register for a [Shotstack developer account](https://dashboard.shotstack.io/register) and a [Twitter developer account](https://developer.twitter.com/en).
+
+```
+$ npm install
+$ cp .env.dist .env
+```
+
+### Twitter authentication
+For the Twitter API we use OAuth1.1. You can generate your API (consumer) keys and associated access token and secret on your dashboard. You will likely have to apply for elevated account access.
+
+Once you have your Twitter credentials add them to your `.env` file, in addition to your [Twitter user ID](https://tweeterid.com/).
+
+### Shotstack authentication
+For Shotstack you can access your API keys via your dashboard. Add your sandbox or production key to your `.env` file and use the appropriate environment. `v1` for production and `stage` for the sandbox.
+
+Only once you have set up your AWS environment and deployed 
+
+### AWS
+Make sure your AWS environment is set up correctly. There are a range of resources that will help you if you're unfamiliar with the process:
+1. [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started)
+2. [Getting started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
 ## Usage
 
-### Deployment
-
-Install dependencies with:
-
 ```
-npm install
+$ npx serverless deploy
 ```
 
-and then deploy with:
+Now copy your webhook API endpoint to your `.env` file and deploy your serverless project again:
 
 ```
-serverless deploy
+$ npx serverless deploy
 ```
 
-After running deploy, you should see output similar to:
+## Built with
 
-```bash
-Serverless: Packaging service...
-Serverless: Excluding development dependencies...
-Serverless: Creating Stack...
-Serverless: Checking Stack create progress...
-........
-Serverless: Stack create finished...
-Serverless: Uploading CloudFormation file to S3...
-Serverless: Uploading artifacts...
-Serverless: Uploading service aws-node-express-api.zip file to S3 (711.23 KB)...
-Serverless: Validating template...
-Serverless: Updating Stack...
-Serverless: Checking Stack update progress...
-.................................
-Serverless: Stack update finished...
-Service Information
-service: aws-node-express-api
-stage: dev
-region: us-east-1
-stack: aws-node-express-api-dev
-resources: 12
-api keys:
-  None
-endpoints:
-  ANY - https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
-functions:
-  api: aws-node-express-api-dev-api
-layers:
-  None
-```
-
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [`httpApi` event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api/).
-
-### Invocation
-
-After successful deployment, you can call the created application via HTTP:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
-```
-
-Which should result in the following response:
-
-```
-{"message":"Hello from root!"}
-```
-
-Calling the `/hello` path with:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/hello
-```
-
-Should result in the following response:
-
-```bash
-{"message":"Hello from path!"}
-```
-
-If you try to invoke a path or method that does not have a configured handler, e.g. with:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/nonexistent
-```
-
-You should receive the following response:
-
-```bash
-{"error":"Not Found"}
-```
-
-### Local development
-
-It is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
-
-```bash
-serverless plugin install -n serverless-offline
-```
-
-It will add the `serverless-offline` plugin to `devDependencies` in `package.json` file as well as will add it to `plugins` in `serverless.yml`.
-
-After installation, you can start local emulation with:
-
-```
-serverless offline
-```
-
-To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
+- [Shotstack](https://github.com/shotstack/) - Shotstack provides a cloud based video editing API used to power applications that create, automate and personalise millions of data driven videos.
+- [node-twitter-api-v2](https://github.com/plhery/node-twitter-api-v2) - Strongly typed, full-featured, light, versatile yet powerful Twitter API v1.1 and v2 client for Node.js.
