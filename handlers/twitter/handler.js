@@ -24,20 +24,27 @@ module.exports.process = async () => {
       tweetPromises.push(tweet.retrieve(client, results[i].parent.id));
     }
 
-    let tweetDetails;
-    try {
-      tweetDetails = await Promise.all(tweetPromises);
-      console.info('Metadata retrieved.');
-    } catch (error) {
-      throw new Error(error);
+    const tweetDetails = await Promise.all(tweetPromises);
+
+    const tweetSets = [];
+    for (let i = 0; i < tweetDetails.length; i += 2) {
+      tweetSets.push([tweetDetails[i], tweetDetails[i + 1]]);
     }
 
     for (let i = 0; i < results.length; i += 1) {
-      Object.assign(results[i].parent, {
-        username: tweetDetails[0].username,
-        profileImageUrl: tweetDetails[0].profile_image_url,
-        name: tweetDetails[0].name,
-        text: tweetDetails[1].text,
+      tweetSets.map(async (set) => {
+        if (set[0].id === results[i].parent.userId) {
+          Object.assign(results[i].parent, {
+            username: set[0].username,
+            profileImageUrl: set[0].profile_image_url,
+            name: set[0].name,
+          });
+        }
+        if (set[1].id === results[i].parent.id) {
+          Object.assign(results[i].parent, {
+            text: set[1].text,
+          });
+        }
       });
     }
     console.info(results);

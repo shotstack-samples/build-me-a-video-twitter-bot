@@ -7,10 +7,6 @@ plugins:
 
 custom:
   project: ${self:service}
-  stages:
-    - dev
-    - stage
-    - v1
   prune:
     automatic: true
     includeLayers: true
@@ -19,7 +15,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs16.x
-  stage: dev
+  stage: demo
   region: ap-southeast-2
   lambdaHashingVersion: '20201221'
   logRetentionInDays: 30
