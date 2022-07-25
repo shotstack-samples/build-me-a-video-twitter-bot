@@ -9,14 +9,16 @@ authorLink: 'https://github.com/derkzomer'
 authorName: 'Derk Zomer'
 -->
 
-# ![pageres](media/promo.png)
-
-[![Coverage Status](https://codecov.io/gh/sindresorhus/pageres/branch/main/graph/badge.svg)](https://codecov.io/gh/sindresorhus/pageres)
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
+# Build Me A Video Twitter Bot
 
 Create a Twitter bot that creates videos from tweets using the Shotstack API.
 
 This project uses AWS Lambda via the [Serverless](https://serverless.com/) framework, **[Shotstack](https://github.com/shotstack)**, [node-twitter-api-v2](https://github.com/plhery/node-twitter-api-v2) to query any Twitter mentions and create a personalised video from tweet and user data.
+
+This project creates two Lambda functions:
+
+1. Query function that checks for new mentions every minute and creates a personalised video for each mention.
+2. Webhook function that accepts a Shotstack callback which uploads the Shotstack video when the render completes and tweets the result as a reply to the original tweet.
 
 ## Install
 
