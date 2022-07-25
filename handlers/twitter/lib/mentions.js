@@ -10,7 +10,10 @@ module.exports = async (client, twitterId, startTime, endTime) => {
     console.info(`${response.data.meta.result_count} mention(s) found.`);
     if (response.data.meta.result_count > 0) {
       for (let i = 0; i < response.data.data.length; i += 1) {
-        if (typeof response.data.data[i].referenced_tweets !== 'undefined') {
+        if (
+          typeof response.data.data[i].referenced_tweets !== 'undefined' &&
+          response.data.data[i].in_reply_to_user_id !== process.env.TWITTER_ID
+        ) {
           const referencedTweets = response.data.data[i].referenced_tweets;
           for (let j = 0; j < referencedTweets.length; j += 1) {
             if (referencedTweets[j].type === 'replied_to') {
