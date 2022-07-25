@@ -18,7 +18,7 @@ This project uses AWS Lambda via the [Serverless](https://serverless.com/) frame
 This project creates two Lambda functions:
 
 1. Query function that checks for new mentions every minute and creates a personalised video for each mention.
-2. Webhook function that accepts a Shotstack callback which uploads the Shotstack video when the render completes and tweets the result as a reply to the original tweet.
+2. Webhook function that accepts a Shotstack callback which uploads the Shotstack video to Twitter when the render completes and tweets the result as a reply to the original tweet.
 
 ## Install
 
