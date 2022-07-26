@@ -16,7 +16,7 @@ const cleanString = async (string) => {
 };
 
 module.exports = async (tweet) => {
-  const text = tweet.text.replace(/@\S+/, '');
+  const text = tweet.text.replace(/@\S+/, '').toLowerCase();
   let template;
   if (text.includes('breaking')) {
     template = breakingNewsTemplate;
