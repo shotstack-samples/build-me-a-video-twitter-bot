@@ -17,9 +17,9 @@
                       "asset": {
                           "type": "html",
                           "html": "<p>@MakeMeAVideo</p>",
-                          "css": "p { font-size: 14px; color: #000000; font-family: 'Newsreader'; font-style: italic; }",
                           "height": 50,
-                          "width": 150
+                          "width": 150,
+                          "css": "p { font-size: 14px; color: #000000; font-family: 'Newsreader'; }"
                       },
                       "offset": {
                           "x": 0.332,
@@ -41,12 +41,12 @@
                       "asset": {
                           "type": "html",
                           "html": "<p>{{text}}</p>",
-                          "css": "p { font-size: 72px; color: #000000; font-family: 'Newsreader'; line-height: 80%; }",
-                          "width": 700,
-                          "height": 425
+                          "height": 425,
+                          "width": 650,
+                          "css": "p { font-size: 40px; color: #000000; font-family: 'Newsreader'; line-height: 100%; }"
                       },
                       "offset": {
-                          "x": 0.101,
+                          "x": 0.12,
                           "y": -0.041
                       },
                       "transition": {
