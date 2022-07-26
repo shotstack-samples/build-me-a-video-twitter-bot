@@ -39,7 +39,9 @@ Once you have your Twitter credentials add them to your `.env` file, in addition
 For Shotstack you can access your API keys via your dashboard. Add your sandbox or production key to your `.env` file and use the appropriate environment. `v1` for production and `stage` for the sandbox.
 
 ### AWS
-Make sure your AWS environment is set up correctly. There are a range of resources that will help you if you're unfamiliar with the process:
+Make sure your AWS environment is set up correctly and you have added your AWS region to the `SLS_REGION` environment variable. In our case this is `ap-southeast-2`.
+
+There are a range of resources that will help you if you're unfamiliar with the process:
 1. [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started)
 2. [Getting started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
