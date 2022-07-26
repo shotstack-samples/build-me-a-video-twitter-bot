@@ -15,12 +15,15 @@ module.exports.process = async (event) => {
   if (payload.status === 'done' && payload.type === 'edit' && payload.action === 'render') {
     const params = {
       FunctionName: 'demo-twitter-buildmeavideo-demo-reply',
-      InvocationType: 'RequestResponse',
+      InvocationType: 'Event',
       Payload: JSON.stringify({ inReplyToTweetId, videoUrl, shotstackId: payload.id }),
     };
     try {
       const result = await lambda.invoke(params).promise();
-      if (result.StatusCode === 200) return response(200, true, 'OK', 'Callback successfully processed.');
+      if (result.StatusCode === 202) {
+        return response(202, true, 'OK', 'Callback successfully processed.');
+      }
+      return response(result.StatusCode, false, 'OK', 'Callback failed.');
     } catch (error) {
       console.error(error);
       return response(501, false, 'OK', 'Callback failed.');
