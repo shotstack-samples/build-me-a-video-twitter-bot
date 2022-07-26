@@ -1,7 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const template = require('../templates/quote.json');
+const template = require('../templates/breaking-news.json');
 
 const baseUrl = process.env.SHOTSTACK_BASE_URL;
 const environment = process.env.SHOTSTACK_ENV;
