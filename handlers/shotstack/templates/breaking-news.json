@@ -16,7 +16,7 @@
                   {
                       "asset": {
                           "type": "html",
-                          "html": "<p>@MakeMeAVideo</p>",
+                          "html": "<p>@BuildMeAVideo</p>",
                           "height": 50,
                           "width": 150,
                           "css": "p { font-size: 14px; color: #000000; font-family: 'Newsreader'; }"
@@ -29,7 +29,6 @@
                           "in": "fade",
                           "out": "fade"
                       },
-                      "effect": "zoomOutSlow",
                       "start": 5.9,
                       "length": 9.2
                   }

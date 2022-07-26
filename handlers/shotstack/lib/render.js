@@ -1,12 +1,13 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const template = require('../templates/breaking-news.json');
-
 const baseUrl = process.env.SHOTSTACK_BASE_URL;
 const environment = process.env.SHOTSTACK_ENV;
 const webhookUrl = process.env.SHOTSTACK_WEBHOOK_URL;
 const apiKey = process.env.SHOTSTACK_API_KEY;
+
+const breakingNewsTemplate = require('../templates/breaking-news.json');
+const quoteTemplate = require('../templates/quote.json');
 
 const cleanString = async (string) => {
   let newString = string.replace(/(\r\n|\n|\r)/gm, '<br>');
@@ -15,6 +16,15 @@ const cleanString = async (string) => {
 };
 
 module.exports = async (tweet) => {
+  const text = tweet.text.replace(/@\S+/, '');
+  let template;
+  if (text.includes('breaking')) {
+    template = breakingNewsTemplate;
+  } else if (text.includes('quote')) {
+    template = quoteTemplate;
+  } else {
+    template = breakingNewsTemplate;
+  }
   const endpoint = `${baseUrl}/${environment}/render`;
   const profileImageUrl = tweet.parent.profileImageUrl.replace(/normal/, '400x400');
 
