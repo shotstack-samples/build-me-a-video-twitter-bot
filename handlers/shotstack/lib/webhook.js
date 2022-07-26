@@ -20,13 +20,12 @@ module.exports.process = async (event) => {
     };
     try {
       const result = await lambda.invoke(params).promise();
-      if (result.StatusCode === 202) {
-        return response(202, true, 'OK', 'Callback successfully processed.');
-      }
+      if (result.StatusCode === 202) return response(202, true, 'OK', 'Callback successfully processed.');
       return response(result.StatusCode, false, 'OK', 'Callback failed.');
     } catch (error) {
       console.error(error);
       return response(501, false, 'OK', 'Callback failed.');
     }
   }
+  return response(200, false, 'OK', 'Callback successfully processed.');
 };
