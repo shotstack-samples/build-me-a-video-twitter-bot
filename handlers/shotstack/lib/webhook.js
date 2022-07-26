@@ -1,23 +1,29 @@
+const AWS = require('aws-sdk');
 const response = require('../../../helpers/response');
-const download = require('../../download/handler');
-const upload = require('../../twitter/lib/upload');
-const tweet = require('../../twitter/lib/tweet');
-const authenticate = require('../../twitter/lib/authenticate');
+
+AWS.config.update({
+  region: process.env.SLS_REGION,
+});
+const lambda = new AWS.Lambda();
 require('dotenv').config();
 
 module.exports.process = async (event) => {
-  const client = await authenticate();
   const inReplyToTweetId = event.pathParameters.id;
   const payload = JSON.parse(event.body);
+  const videoUrl = payload.url;
   console.info(payload);
-  // const videoUrl = payload.status === 'done' ? payload.url : null;
   if (payload.status === 'done' && payload.type === 'edit' && payload.action === 'render') {
-    const videoUrl = payload.url;
-    const videoPath = await download(videoUrl);
-    const mediaId = await upload(client, videoPath);
-    const createdTweet = await tweet.post(client, inReplyToTweetId, mediaId);
-    console.info('Tweet', createdTweet.id, ':', createdTweet.text);
-    return response(201, true, 'OK', 'Callback successfully processed.');
+    const params = {
+      FunctionName: 'demo-twitter-buildmeavideo-demo-reply',
+      InvocationType: 'RequestResponse',
+      Payload: JSON.stringify({ inReplyToTweetId, videoUrl, shotstackId: payload.id }),
+    };
+    try {
+      const result = await lambda.invoke(params).promise();
+      if (result.StatusCode === 200) return response(200, true, 'OK', 'Callback successfully processed.');
+    } catch (error) {
+      console.error(error);
+      return response(501, false, 'OK', 'Callback failed.');
+    }
   }
-  return response(501, false, 'OK', 'Callback successfully processed.');
 };

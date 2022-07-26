@@ -1,10 +1,14 @@
 const Dayjs = require('dayjs');
 const utc = require('dayjs/plugin/utc');
+const download = require('../download/handler');
+const upload = require('./lib/upload');
 const mentions = require('./lib/mentions');
 const user = require('./lib/user');
 const tweet = require('./lib/tweet');
 const render = require('../shotstack/lib/render');
 const authenticate = require('./lib/authenticate');
+
+
 
 Dayjs.extend(utc);
 require('dotenv').config();
@@ -59,4 +63,13 @@ module.exports.process = async () => {
   } catch (error) {
     throw new Error(error);
   }
+};
+
+module.exports.reply = async (event) => {
+  const { inReplyToTweetId, videoUrl, shotstackId } = event;
+  const client = await authenticate();
+  const videoPath = await download(videoUrl);
+  const mediaId = await upload(client, videoPath);
+  const createdTweet = await tweet.post(client, inReplyToTweetId, mediaId);
+  console.info(`Shotstack ID: ${shotstackId} Tweet: ${createdTweet.id} : ${createdTweet.text}`);
 };
