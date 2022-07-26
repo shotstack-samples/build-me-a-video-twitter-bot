@@ -17,7 +17,7 @@ module.exports.process = async (event) => {
     const mediaId = await upload(client, videoPath);
     const createdTweet = await tweet.post(client, inReplyToTweetId, mediaId);
     console.info('Tweet', createdTweet.id, ':', createdTweet.text);
-    return response(200, true, 'OK', 'Callback successfully processed.');
+    return response(201, true, 'OK', 'Callback successfully processed.');
   }
   return response(501, false, 'OK', 'Callback successfully processed.');
 };
