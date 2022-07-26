@@ -15,10 +15,11 @@ Create a Twitter bot that creates videos from tweets using the Shotstack API.
 
 This project uses AWS Lambda via the [Serverless](https://serverless.com/) framework, **[Shotstack](https://github.com/shotstack)**, [node-twitter-api-v2](https://github.com/plhery/node-twitter-api-v2) to query any Twitter mentions and create a personalised video from tweet and user data.
 
-This project creates two Lambda functions:
+This project creates three Lambda functions:
 
 1. Query function that checks for new mentions every minute and creates a personalised video for each mention.
-2. Webhook function that accepts a Shotstack callback which uploads the Shotstack video to Twitter when the render completes and tweets the result as a reply to the original tweet.
+2. Webhook function that accepts a Shotstack callback and executes the lambda which will reply to the Tweet.
+3. Reply function which uploads the Shotstack video to Twitter when the render completes and tweets the result as a reply to the original tweet.
 
 ## Install
 
@@ -36,8 +37,6 @@ Once you have your Twitter credentials add them to your `.env` file, in addition
 
 ### Shotstack authentication
 For Shotstack you can access your API keys via your dashboard. Add your sandbox or production key to your `.env` file and use the appropriate environment. `v1` for production and `stage` for the sandbox.
-
-Only once you have set up your AWS environment and deployed 
 
 ### AWS
 Make sure your AWS environment is set up correctly. There are a range of resources that will help you if you're unfamiliar with the process:
