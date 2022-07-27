@@ -52,14 +52,14 @@ package:
 
 functions:
   process:
-    handler: handlers/twitter/handler.process
+    handler: handlers/process/handler.process
     description: Process any new mentions
     timeout: 300
     memorySize: 128
     events:
       - schedule: rate(1 minute)
   webhook:
-    handler: handlers/shotstack/lib/webhook.process
+    handler: handlers/webhook/handler.process
     description: Respond to webhook
     timeout: 30
     memorySize: 128
@@ -68,7 +68,7 @@ functions:
           method: POST
           path: /webhook/{id}
   reply:
-    handler: handlers/twitter/handler.reply
+    handler: handlers/reply/handler.process
     description: Upload rendered videos to Twitter and tweet
     timeout: 30
     memorySize: 128

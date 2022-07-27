@@ -1,0 +1,116 @@
+{
+  "timeline": {
+      "background": "#000000",
+      "tracks": [
+          {
+              "clips": [
+                  {
+                      "asset": {
+                          "type": "html",
+                          "html": "<p>{{text}}</p>",
+                          "css": "p { font-size: 72px; color: #FFFFFF; }",
+                          "width": 750,
+                          "height": 593
+                      },
+                      "start": 1,
+                      "length": 9,
+                      "offset": {
+                          "x": 0.167,
+                          "y": 0
+                      },
+                      "transition": {
+                          "in": "fadeSlow"
+                      },
+                      "effect": "zoomOutSlow"
+                  }
+              ]
+          },
+          {
+              "clips": [
+                  {
+                      "asset": {
+                          "type": "luma",
+                          "src": "https://shotstack-assets.s3.amazonaws.com/luma-mattes/circle-400x400.jpg"
+                      },
+                      "start": 0.5,
+                      "length": 9.5,
+                      "effect": "zoomIn"
+                  },
+                  {
+                      "asset": {
+                          "type": "image",
+                          "src": "{{profilePictureUrl}}"
+                      },
+                      "start": 0.5,
+                      "length": 9.5,
+                      "offset": {
+                          "x": -0.329,
+                          "y": 0.14
+                      },
+                      "fit": "none",
+                      "transition": {
+                          "in": "fade"
+                      },
+                      "scale": 0.75
+                  }
+              ]
+          },
+          {
+              "clips": [
+                  {
+                      "asset": {
+                          "type": "html",
+                          "html": "<p class='name'>{{name}}</p><p class='username'>@{{username}}</p>",
+                          "height": 200,
+                          "css": "p { color: #000000; text-align: center } .name { font-size: 46px; } .username { font-size: 24px; }",
+                          "width": 360
+                      },
+                      "start": 0.5,
+                      "length": 9.5,
+                      "offset": {
+                          "x": -0.328,
+                          "y": -0.22
+                      },
+                      "transition": {
+                          "in": "fade"
+                      }
+                  }
+              ]
+          },
+          {
+              "clips": [
+                  {
+                      "asset": {
+                          "type": "html",
+                          "html": "<p></p>",
+                          "background": "#F5F8FA",
+                          "height": 720,
+                          "width": 427
+                      },
+                      "start": 0,
+                      "length": 10,
+                      "transition": {
+                          "in": "carouselRightSlow"
+                      },
+                      "position": "left",
+                      "offset": {
+                          "x": 0,
+                          "y": 0
+                      }
+                  }
+              ]
+          }
+      ]
+  },
+  "output": {
+      "format": "mp4",
+      "resolution": "hd",
+      "fps": 30,
+      "destinations": [
+          {
+              "provider": "shotstack",
+              "exclude": true
+          }
+      ]
+  }
+}

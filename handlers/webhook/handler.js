@@ -1,10 +1,24 @@
 const AWS = require('aws-sdk');
-const response = require('../../../helpers/response');
 
 AWS.config.update({
   region: process.env.REGION,
 });
+
 const lambda = new AWS.Lambda();
+
+const response = async (code, success, msg, data) => {
+  return {
+    statusCode: parseInt(code, 10),
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    body: JSON.stringify({
+      success: !!success,
+      message: msg,
+      response: data,
+    }),
+  };
+};
 
 module.exports.process = async (event) => {
   const inReplyToTweetId = event.pathParameters.id;

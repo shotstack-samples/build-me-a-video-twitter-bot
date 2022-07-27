@@ -5,12 +5,13 @@ const environment = process.env.SHOTSTACK_ENV;
 const webhookUrl = process.env.SHOTSTACK_WEBHOOK_URL;
 const apiKey = process.env.SHOTSTACK_API_KEY;
 
-const breakingNewsTemplate = require('../templates/breaking-news.json');
-const quoteTemplate = require('../templates/quote.json');
+const breakingNewsTemplate = require('../../../templates/breaking-news.json');
+const quoteTemplate = require('../../../templates/quote.json');
 
 const cleanString = async (string) => {
   let newString = string.replace(/(\r\n|\n|\r)/gm, '<br>');
-  newString = newString.replace(/"/g, "'");
+  newString = string.replace(/'/g, "&quot;");
+  newString = newString.replace(/"/g, "&quot;");
   return newString;
 };
 
