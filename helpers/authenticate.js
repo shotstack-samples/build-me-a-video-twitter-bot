@@ -1,5 +1,4 @@
 const { TwitterApi } = require('twitter-api-v2');
-require('dotenv').config();
 
 module.exports = async () => {
   return new TwitterApi({

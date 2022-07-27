@@ -1,15 +1,14 @@
 service: demo-twitter-buildmeavideo
-frameworkVersion: '2 || 3'
+frameworkVersion: '3'
+useDotenv: true
 
 plugins:
   - serverless-prune-plugin
-  - serverless-dotenv-plugin
 
 custom:
   project: ${self:service}
   prune:
     automatic: true
-    includeLayers: true
     number: 5
 
 provider:
@@ -20,7 +19,7 @@ provider:
   lambdaHashingVersion: '20201221'
   logRetentionInDays: 30
   deploymentBucket:
-    name: shotstack-serverless-deploys-${self:provider.region}
+    name: ${env:DEPLOYMENT_BUCKET}
     blockPublicAccess: true
   iamRoleStatements:
     - Effect: "Allow"
@@ -29,34 +28,47 @@ provider:
         - "lambda:InvokeAsync"
       Resource:
         - "*"
+  environment:
+    REGION: ${opt:region, self:provider.region}
+    STAGE: ${opt:stage, self:provider.stage}
+    TWITTER_API_KEY: ${env:TWITTER_API_KEY}
+    TWITTER_API_KEY_SECRET: ${env:TWITTER_API_KEY_SECRET}
+    TWITTER_ACCESS_TOKEN: ${env:TWITTER_ACCESS_TOKEN}
+    TWITTER_TOKEN_SECRET: ${env:TWITTER_TOKEN_SECRET}
+    TWITTER_ID: ${env:TWITTER_ID}
+    SHOTSTACK_API_KEY: ${env:SHOTSTACK_API_KEY}
+    SHOTSTACK_BASE_URL: ${env:SHOTSTACK_BASE_URL}
+    SHOTSTACK_ENV: ${env:SHOTSTACK_ENV}
+    SHOTSTACK_WEBHOOK_URL: ${env:SHOTSTACK_WEBHOOK_URL}
 
 package:
   exclude:
     - .env
     - .env.dist
     - .gitignore
+    - .eslintrc.js
+    - .prettierrc.json
     - README.md
 
 functions:
   process:
-    handler: handlers/twitter/handler.process
+    handler: handlers/process/handler.process
     description: Process any new mentions
     timeout: 300
     memorySize: 128
     events:
-      - eventBridge:
-        schedule: rate(1 minute)
+      - schedule: rate(1 minute)
   webhook:
-    handler: handlers/shotstack/lib/webhook.process
+    handler: handlers/webhook/handler.process
     description: Respond to webhook
     timeout: 30
     memorySize: 128
     events:
-      - http:
+      - httpApi:
           method: POST
           path: /webhook/{id}
   reply:
-    handler: handlers/twitter/handler.reply
+    handler: handlers/reply/handler.process
     description: Upload rendered videos to Twitter and tweet
     timeout: 30
     memorySize: 128

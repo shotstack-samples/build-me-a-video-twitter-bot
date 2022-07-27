@@ -48,13 +48,13 @@ There are a range of resources that will help you if you're unfamiliar with the 
 ## Usage
 
 ```
-$ npx serverless deploy
+$ npm run deploy
 ```
 
 Now copy your webhook API endpoint to your `.env` file and deploy your serverless project again:
 
 ```
-$ npx serverless deploy
+$ npm run deploy
 ```
 
 ## Built with
