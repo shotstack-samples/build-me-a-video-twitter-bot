@@ -2,10 +2,9 @@ const AWS = require('aws-sdk');
 const response = require('../../../helpers/response');
 
 AWS.config.update({
-  region: process.env.SLS_REGION,
+  region: process.env.REGION,
 });
 const lambda = new AWS.Lambda();
-require('dotenv').config();
 
 module.exports.process = async (event) => {
   const inReplyToTweetId = event.pathParameters.id;

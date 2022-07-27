@@ -9,7 +9,6 @@ const render = require('../shotstack/lib/render');
 const authenticate = require('./lib/authenticate');
 
 Dayjs.extend(utc);
-require('dotenv').config();
 
 module.exports.process = async () => {
   const client = await authenticate();
