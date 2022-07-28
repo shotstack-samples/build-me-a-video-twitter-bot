@@ -23,12 +23,12 @@ provider:
     blockPublicAccess: true
 
   iamRoleStatements:
-    - Effect: "Allow"
+    - Effect: 'Allow'
       Action:
-        - "lambda:InvokeFunction"
-        - "lambda:InvokeAsync"
+        - 'lambda:InvokeFunction'
+        - 'lambda:InvokeAsync'
       Resource:
-        - "*"
+        - 'arn:aws:lambda:${opt:region, self:provider.region}:*:function:${opt:stage, self:provider.stage}-twitter-buildmeavideo-demo-reply'
 
   environment:
     REGION: ${opt:region, self:provider.region}
