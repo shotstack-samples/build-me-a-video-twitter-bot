@@ -49,8 +49,6 @@ package:
     - .env.dist
     - .eslintrc.js
     - .gitignore
-    - .eslintrc.js
-    - .prettierrc.json
     - README.md
 
 functions:
