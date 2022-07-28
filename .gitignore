@@ -2,5 +2,3 @@ node_modules
 .serverless
 .env
 .DS_Store
-.eslintrc.js
-.prettierrc.json
