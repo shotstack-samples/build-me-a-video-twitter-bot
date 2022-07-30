@@ -10,8 +10,8 @@ const quoteTemplate = require('../../../templates/quote.json');
 
 const cleanString = async (string) => {
   let newString = string.replace(/(\r\n|\n|\r)/gm, '<br>');
-  newString = string.replace(/'/g, "&quot;");
-  newString = newString.replace(/"/g, "&quot;");
+  newString = string.replace(/'/g, '&quot;');
+  newString = newString.replace(/"/g, '&quot;');
   return newString;
 };
 

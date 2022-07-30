@@ -43,7 +43,7 @@ module.exports.retrieve = async (client) => {
         }
       }
     }
-    
+
     return results;
   } catch (error) {
     throw new Error(error);
