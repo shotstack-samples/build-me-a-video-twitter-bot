@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const url = require('url');
-const promisify = require('util').promisify;
+const { promisify } = require('util');
 const stream = require('stream');
 
 module.exports = async (uri) => {
@@ -16,7 +16,7 @@ module.exports = async (uri) => {
   });
 
   response.data.pipe(writer);
-  
+
   try {
     await finishedDownload(writer);
     return writer.path;
