@@ -1,148 +1,138 @@
 {
-  "timeline": {
-      "soundtrack": {
-          "src": "https://shotstack-assets.s3.ap-southeast-2.amazonaws.com/music/breaking-news-mid.mp3",
-          "volume": 1
-      },
-      "fonts": [
-          {
-              "src": "https://shotstack-assets.s3.ap-southeast-2.amazonaws.com/fonts/Newsreader_24pt-Regular.ttf"
-          }
-      ],
-      "background": "#000000",
-      "tracks": [
-          {
-              "clips": [
-                  {
-                      "asset": {
-                          "type": "html",
-                          "html": "<p>@BuildMeAVideo</p>",
-                          "height": 50,
-                          "width": 150,
-                          "css": "p { font-size: 14px; color: #000000; font-family: 'Newsreader'; }"
-                      },
-                      "offset": {
-                          "x": 0.332,
-                          "y": -0.299
-                      },
-                      "transition": {
-                          "in": "fade",
-                          "out": "fade"
-                      },
-                      "start": 5.9,
-                      "length": 9.2
-                  }
-              ]
-          },
-          {
-              "clips": [
-                  {
-                      "asset": {
-                          "type": "html",
-                          "html": "<p>{{text}}</p>",
-                          "height": 425,
-                          "width": 650,
-                          "css": "p { font-size: 40px; color: #000000; font-family: 'Newsreader'; line-height: 100%; }"
-                      },
-                      "offset": {
-                          "x": 0.12,
-                          "y": -0.041
-                      },
-                      "transition": {
-                          "in": "fade",
-                          "out": "fade"
-                      },
-                      "effect": "zoomOutSlow",
-                      "start": 5.9,
-                      "length": 9.2
-                  }
-              ]
-          },
-          {
-              "clips": [
-                  {
-                      "asset": {
-                          "type": "luma",
-                          "src": "https://shotstack-assets.s3.amazonaws.com/luma-mattes/circle-400x400.jpg"
-                      },
-                      "effect": "zoomIn",
-                      "start": 5.8,
-                      "length": 9.2
-                  },
-                  {
-                      "asset": {
-                          "type": "image",
-                          "src": "{{profilePictureUrl}}"
-                      },
-                      "offset": {
-                          "x": -0.273,
-                          "y": 0.04
-                      },
-                      "fit": "none",
-                      "transition": {
-                          "in": "fade",
-                          "out": "fade"
-                      },
-                      "start": 5.8,
-                      "length": 9.2,
-                      "scale": 0.5
-                  }
-              ]
-          },
-          {
-              "clips": [
-                  {
-                      "asset": {
-                          "type": "html",
-                          "html": "<p class='name'>{{name}}</p><p class='username'>@{{username}}</p>",
-                          "width": 200,
-                          "height": 150,
-                          "css": "p { color: #000000; text-align: center; font-family: 'Newsreader'; line-height: 80%; } .name { font-size: 32px; } .username { font-size: 20px; }"
-                      },
-                      "offset": {
-                          "x": -0.273,
-                          "y": -0.2
-                      },
-                      "transition": {
-                          "in": "fade",
-                          "out": "fade"
-                      },
-                      "start": 5.8,
-                      "length": 9.2
-                  }
-              ]
-          },
-          {
-              "clips": [
-                  {
-                      "asset": {
-                          "type": "video",
-                          "src": "https://shotstack-assets.s3.ap-southeast-2.amazonaws.com/footage/breaking-news.mp4",
-                          "volume": 0
-                      },
-                      "start": 0,
-                      "length": 15,
-                      "transition": {
-                          "out": "fade"
-                      },
-                      "offset": {
-                          "x": 0,
-                          "y": 0
-                      }
-                  }
-              ]
-          }
-      ]
-  },
-  "output": {
-      "format": "mp4",
-      "resolution": "hd",
-      "fps": 30,
-      "destinations": [
-          {
-              "provider": "shotstack",
-              "exclude": true
-          }
-      ]
-  }
+    "timeline": {
+        "soundtrack": {
+            "src": "https://shotstack-assets.s3.ap-southeast-2.amazonaws.com/music/breaking-news-mid.mp3",
+            "volume": 1
+        },
+        "fonts": [{
+                "src": "https://shotstack-assets.s3.ap-southeast-2.amazonaws.com/fonts/Newsreader_24pt-Regular.ttf"
+            },
+            {
+                "src": "https://s3.ap-southeast-2.amazonaws.com/templates.shotstack.io/basic/asset/font/notosans-regular.ttf"
+            }
+        ],
+        "background": "#000000",
+        "tracks": [{
+                "clips": [{
+                    "asset": {
+                        "type": "html",
+                        "html": "<p>@BuildMeAVideo</p>",
+                        "height": 50,
+                        "width": 150,
+                        "css": "p { font-size: 14px; color: #000000; font-family: 'Newsreader'; }"
+                    },
+                    "offset": {
+                        "x": 0.332,
+                        "y": -0.299
+                    },
+                    "transition": {
+                        "in": "fade",
+                        "out": "fade"
+                    },
+                    "start": 5.9,
+                    "length": 9.2
+                }]
+            },
+            {
+                "clips": [{
+                    "asset": {
+                        "type": "html",
+                        "html": "<p>{{text}}</p>",
+                        "height": 425,
+                        "width": 650,
+                        "css": "p { font-size: 40px; color: #000000; font-family: 'Noto Sans'; line-height: 100%; }"
+                    },
+                    "offset": {
+                        "x": 0.12,
+                        "y": -0.041
+                    },
+                    "transition": {
+                        "in": "fade",
+                        "out": "fade"
+                    },
+                    "effect": "zoomOutSlow",
+                    "start": 5.9,
+                    "length": 9.2
+                }]
+            },
+            {
+                "clips": [{
+                        "asset": {
+                            "type": "luma",
+                            "src": "https://shotstack-assets.s3.amazonaws.com/luma-mattes/circle-400x400.jpg"
+                        },
+                        "effect": "zoomIn",
+                        "start": 5.8,
+                        "length": 9.2
+                    },
+                    {
+                        "asset": {
+                            "type": "image",
+                            "src": "{{profilePictureUrl}}"
+                        },
+                        "offset": {
+                            "x": -0.273,
+                            "y": 0.04
+                        },
+                        "fit": "none",
+                        "transition": {
+                            "in": "fade",
+                            "out": "fade"
+                        },
+                        "start": 5.8,
+                        "length": 9.2,
+                        "scale": 0.5
+                    }
+                ]
+            },
+            {
+                "clips": [{
+                    "asset": {
+                        "type": "html",
+                        "html": "<p class='name'>{{name}}</p><p class='username'>@{{username}}</p>",
+                        "width": 200,
+                        "height": 150,
+                        "css": "p { color: #000000; text-align: center; font-family: 'Newsreader'; line-height: 80%; } .name { font-size: 32px; } .username { font-size: 20px; }"
+                    },
+                    "offset": {
+                        "x": -0.273,
+                        "y": -0.2
+                    },
+                    "transition": {
+                        "in": "fade",
+                        "out": "fade"
+                    },
+                    "start": 5.8,
+                    "length": 9.2
+                }]
+            },
+            {
+                "clips": [{
+                    "asset": {
+                        "type": "video",
+                        "src": "https://shotstack-assets.s3.ap-southeast-2.amazonaws.com/footage/breaking-news.mp4",
+                        "volume": 0
+                    },
+                    "start": 0,
+                    "length": 15,
+                    "transition": {
+                        "out": "fade"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0
+                    }
+                }]
+            }
+        ]
+    },
+    "output": {
+        "format": "mp4",
+        "resolution": "hd",
+        "fps": 30,
+        "destinations": [{
+            "provider": "shotstack",
+            "exclude": true
+        }]
+    }
 }
