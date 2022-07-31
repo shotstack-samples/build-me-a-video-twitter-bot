@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1181.0",
-    "axios": "^0.27.2",
     "dayjs": "^1.11.3",
+    "node-fetch": "^2.6.7",
     "twitter-api-v2": "^1.12.3"
   },
   "devDependencies": {

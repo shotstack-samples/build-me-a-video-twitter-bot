@@ -1,4 +1,4 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 
 const baseUrl = process.env.SHOTSTACK_BASE_URL;
 const environment = process.env.SHOTSTACK_ENV;
@@ -54,15 +54,17 @@ module.exports = async (tweet) => {
   template.merge = merge;
 
   try {
-    const response = await axios.post(endpoint, template, {
+    const response = await fetch(endpoint, {
+      method: 'post',
+      body: JSON.stringify(template),
       headers: {
         'Content-Type': 'application/json',
         'user-agent': 'BuildMeAVideo',
         'x-api-key': apiKey,
       },
     });
-    console.info(response.data);
-    return response.data;
+    const responseBody = await response.json();
+    return responseBody;
   } catch (error) {
     throw new Error(error);
   }
