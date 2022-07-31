@@ -63,8 +63,8 @@ module.exports = async (tweet) => {
         'x-api-key': apiKey,
       },
     });
-    console.info(response.json());
-    return response.json();
+    const responseBody = await response.json();
+    return responseBody;
   } catch (error) {
     throw new Error(error);
   }
