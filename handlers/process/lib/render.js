@@ -16,17 +16,26 @@ const cleanString = async (string) => {
 };
 
 module.exports = async (tweet) => {
-  const text = tweet.text.replace(/@\S+/, '').toLowerCase();
+  const tweetText = tweet.text.replace(/@\S+/, '').toLowerCase();
   let template;
-  if (text.includes('breaking')) {
+  if (tweetText.includes('breaking')) {
     template = breakingNewsTemplate;
-  } else if (text.includes('quote')) {
+  } else if (tweetText.includes('quote')) {
     template = quoteTemplate;
   } else {
     template = breakingNewsTemplate;
   }
   const endpoint = `${baseUrl}/${environment}/render`;
   const profileImageUrl = tweet.parent.profileImageUrl.replace(/normal/, '400x400');
+
+  const text = await cleanString(tweet.parent.text);
+  const textLength = text.length;
+  let fontSize = '20pt';
+
+  if (textLength <= 65) fontSize = '40pt';
+  if (textLength > 65 && textLength <= 130) fontSize = '30pt';
+  if (textLength > 130 && textLength <= 195) fontSize = '25pt';
+  if (textLength > 195 && textLength <= 260) fontSize = '22pt';
 
   const merge = [
     {
@@ -39,11 +48,15 @@ module.exports = async (tweet) => {
     },
     {
       find: 'text',
-      replace: await cleanString(tweet.parent.text),
+      replace: text,
     },
     {
       find: 'profilePictureUrl',
       replace: profileImageUrl,
+    },
+    {
+      find: 'fontSize',
+      replace: fontSize,
     },
   ];
 
