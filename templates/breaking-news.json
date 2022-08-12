@@ -22,11 +22,11 @@
                             "html": "<p>@MakeMeAVideo</p>",
                             "height": 50,
                             "width": 150,
-                            "css": "p { font-size: 14px; color: #000000; font-family: \"Noto Sans\",\"Noto Sans Arabic\"; font-style: italic; font-weight: 600; }"
+                            "css": "p { font-size: 14px; color: #FFFFFF; font-family: \"Noto Sans\",\"Noto Sans Arabic\"; font-style: italic; font-weight: 600; }"
                         },
                         "offset": {
-                            "x": 0.332,
-                            "y": -0.299
+                            "x": 0.439,
+                            "y": -0.464
                         },
                         "transition": {
                             "in": "fade",
@@ -44,13 +44,13 @@
                         "asset": {
                             "type": "html",
                             "html": "<p>{{text}}</p>",
-                            "height": 425,
-                            "width": 650,
-                            "css": "p { font-size: 40px; color: #000000; font-family: \"Noto Sans\",\"Noto Sans Arabic\"; line-height: 100%; }"
+                            "css": "p { font-size: {{fontSize}}; color: #000000; font-family: \"Noto Sans\",\"Noto Sans Arabic\"; line-height: 120%; }",
+                            "width": 900,
+                            "height": 250
                         },
                         "offset": {
-                            "x": 0.13,
-                            "y": -0.041
+                            "x": 0.002,
+                            "y": -0.127
                         },
                         "transition": {
                             "in": "fade",
@@ -58,7 +58,9 @@
                         },
                         "effect": "zoomOutSlow",
                         "start": 5.9,
-                        "length": 9.2
+                        "length": 9.2,
+                        "position": "center",
+                        "fit": "none"
                     }
                 ]
             },
@@ -79,8 +81,8 @@
                             "src": "{{profilePictureUrl}}"
                         },
                         "offset": {
-                            "x": -0.273,
-                            "y": 0.04
+                            "x": 0.349,
+                            "y": 0.217
                         },
                         "fit": "none",
                         "transition": {
@@ -99,13 +101,13 @@
                         "asset": {
                             "type": "html",
                             "html": "<p class='name'>{{name}}</p><p class='username'>@{{username}}</p>",
-                            "width": 200,
-                            "height": 150,
-                            "css": "p { color: #000000; text-align: center; font-family: \"Noto Sans\",\"Noto Sans Arabic\"; line-height: 80%; } .name { font-size: 40px; } .username { font-size: 24px; }"
+                            "height": 100,
+                            "width": 750,
+                            "css": "p { color: #000000; text-align: right; font-family: \"Noto Sans\",\"Noto Sans Arabic\"; line-height: 80%; } .name { font-size: 40px; } .username { font-size: 24px; }"
                         },
                         "offset": {
-                            "x": -0.273,
-                            "y": -0.2
+                            "x": -0.039,
+                            "y": 0.153
                         },
                         "transition": {
                             "in": "fade",
