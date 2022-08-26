@@ -11,7 +11,7 @@ const quoteTemplate = require('../../../templates/quote.json');
 const cleanString = async (string) => {
   let newString = string.replace(/(\r\n|\n|\r)/gm, '<br>');
   newString = string.replace(/'/g, '&apos;');
-  newString = newString.replace(/"/g, '&quot;');
+  // newString = newString.replace(/"/g, '&quot;');
   return newString;
 };
 
@@ -30,12 +30,12 @@ module.exports = async (tweet) => {
 
   const text = await cleanString(tweet.parent.text);
   const textLength = text.length;
-  let fontSize = '20pt';
+  let fontSize = '27';
 
-  if (textLength <= 65) fontSize = '40pt';
-  if (textLength > 65 && textLength <= 130) fontSize = '30pt';
-  if (textLength > 130 && textLength <= 195) fontSize = '25pt';
-  if (textLength > 195 && textLength <= 260) fontSize = '22pt';
+  if (textLength <= 65) fontSize = '53';
+  if (textLength > 65 && textLength <= 130) fontSize = '40';
+  if (textLength > 130 && textLength <= 195) fontSize = '33';
+  if (textLength > 195 && textLength <= 260) fontSize = '29';
 
   const merge = [
     {
