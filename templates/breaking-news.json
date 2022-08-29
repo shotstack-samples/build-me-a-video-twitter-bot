@@ -44,7 +44,7 @@
                         "asset": {
                             "type": "html",
                             "html": "<p>{{text}}</p>",
-                            "css": "p { font-size: {{fontSize}}; color: #000000; font-family: \"Noto Sans\",\"Noto Sans Arabic\"; line-height: 120%; }",
+                            "css": "p { font-size: {{fontSize}}px; color: #000000; font-family: \"Noto Sans\",\"Noto Sans Arabic\"; line-height: 120%; }",
                             "width": 900,
                             "height": 250
                         },
