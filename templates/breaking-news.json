@@ -6,13 +6,13 @@
         },
         "fonts": [
             {
-                "src": "https://templates.shotstack.io/basic/asset/font/NotoSansArabic-Regular.ttf"
+                "src": "https://templates.shotstack.io/basic/asset/font/notosansarabic-regular.ttf"
             },
             {
                 "src": "https://templates.shotstack.io/basic/asset/font/notosans-regular.ttf"
             },
             {
-                "src": "https://templates.shotstack.io/basic/asset/font/NotoSansThai-Regular.ttf"
+                "src": "https://templates.shotstack.io/basic/asset/font/notosansthai-regular.ttf"
             },
             {
                 "src": "https://templates.shotstack.io/basic/asset/font/notosansjp-regular.otf"
@@ -21,19 +21,19 @@
                 "src": "https://templates.shotstack.io/basic/asset/font/notosanssc-regular.otf"
             },
             {
-                "src": "https://templates.shotstack.io/basic/asset/font/NotoSansLao-Regular.ttf"
+                "src": "https://templates.shotstack.io/basic/asset/font/notosanslao-regular.ttf"
             },
             {
-                "src": "https://templates.shotstack.io/basic/asset/font/NotoSansKR-Regular.otf"
+                "src": "https://templates.shotstack.io/basic/asset/font/notosanskr-regular.otf"
             },
             {
-                "src": "https://templates.shotstack.io/basic/asset/font/NotoSansHebrew-Regular.ttf"
+                "src": "https://templates.shotstack.io/basic/asset/font/notosanshebrew-regular.ttf"
             },
             {
-                "src": "https://templates.shotstack.io/basic/asset/font/NotoSansTC-Regular.otf"
+                "src": "https://templates.shotstack.io/basic/asset/font/notosanstc-regular.otf"
             },
             {
-                "src": "https://templates.shotstack.io/basic/asset/font/NotoSansHK-Regular.otf"
+                "src": "https://templates.shotstack.io/basic/asset/font/notosanshk-regular.otf"
             }
         ],
         "background": "#000000",
